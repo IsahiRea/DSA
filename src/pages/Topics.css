@@ -1,0 +1,66 @@
+.topics h1 {
+  margin-bottom: 0.5rem;
+}
+
+.topics-intro {
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.topic-section {
+  margin-bottom: 2.5rem;
+}
+
+.topic-section h2 {
+  color: #646cff;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+.topic-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.topic-card {
+  display: block;
+  background-color: #1a1a2e;
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #2a2a4e;
+  text-decoration: none;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.topic-card:hover {
+  border-color: #646cff;
+  transform: translateY(-2px);
+}
+
+.topic-card h3 {
+  color: #fff;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.topic-card p {
+  color: #999;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+@media (min-width: 768px) {
+  .topic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .topic-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .topic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
