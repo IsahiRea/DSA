@@ -7,6 +7,7 @@ import MainLayout from './layouts/MainLayout'
 import Home from './pages/Home'
 import Topics from './pages/Topics'
 import About from './pages/About'
+import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       { path: 'topics', element: <Topics /> },
       { path: 'about', element: <About /> },
+      { path: '*', element: <NotFound /> },
     ],
   },
 ])
