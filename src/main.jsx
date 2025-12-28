@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import Topics from './pages/Topics'
 import About from './pages/About'
 import NotFound from './pages/NotFound'
+import TopicDetail from './pages/TopicDetail'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'topics', element: <Topics /> },
+      { path: 'topics/:slug', element: <TopicDetail /> },
       { path: 'about', element: <About /> },
       { path: '*', element: <NotFound /> },
     ],
