@@ -1,7 +1,9 @@
 import arrays from './arrays'
+import linkedLists from './linked-lists'
 
 const topics = {
   arrays,
+  'linked-lists': linkedLists,
 }
 
 export function getTopic(slug) {

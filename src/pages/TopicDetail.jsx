@@ -3,7 +3,13 @@ import { useState } from 'react'
 import { getTopic } from '../data/topics'
 import LanguageTabs from '../components/TopicDetail/LanguageTabs'
 import ArrayVisualization from '../components/visualizations/ArrayVisualization'
+import LinkedListVisualization from '../components/visualizations/LinkedListVisualization'
 import './TopicDetail.css'
+
+const VISUALIZATIONS = {
+  'arrays': ArrayVisualization,
+  'linked-lists': LinkedListVisualization,
+}
 
 function TopicDetail() {
   const { slug } = useParams()
@@ -92,7 +98,16 @@ function TopicDetail() {
           <h2 className="topic-detail__section-title">Visualization</h2>
         </div>
 
-        <ArrayVisualization />
+        {VISUALIZATIONS[slug] ? (
+          (() => {
+            const VisualizationComponent = VISUALIZATIONS[slug]
+            return <VisualizationComponent />
+          })()
+        ) : (
+          <div className="topic-detail__no-viz">
+            Visualization coming soon for {meta.name}
+          </div>
+        )}
       </section>
 
       {/* Operations Section */}

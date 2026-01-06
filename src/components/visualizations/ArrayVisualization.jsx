@@ -187,9 +187,22 @@ function ArrayVisualization() {
     }
   }, [isPlaying, isLastStep, nextStep, speed])
 
-  useEffect(() => {
-    resetVisualization()
-  }, [currentOperation, resetVisualization])
+  const handleOperationChange = useCallback((key) => {
+    if (key !== currentOperation) {
+      setCurrentOperation(key)
+      setStepIndex(0)
+      setArrayState([...INITIAL_ARRAY])
+      setHighlightedIndices([])
+      setSelectedIndex(null)
+      setScannedIndices([])
+      setShiftingIndices([])
+      setPhase(null)
+      setIsPlaying(false)
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
+    }
+  }, [currentOperation])
 
   const togglePlay = () => {
     if (isLastStep) {
@@ -212,7 +225,7 @@ function ArrayVisualization() {
             <button
               key={key}
               className={`array-viz__op-btn ${currentOperation === key ? 'array-viz__op-btn--active' : ''}`}
-              onClick={() => setCurrentOperation(key)}
+              onClick={() => handleOperationChange(key)}
             >
               {op.name}
             </button>
